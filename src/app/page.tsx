@@ -90,7 +90,7 @@ export function InputFile() {
       const formData = new FormData();
       formData.append('image', original);
         try {
-          const response = await fetch('http://127.0.0.1:5000/remove-background', {
+          const response = await fetch('http://54.152.231.33:5000/remove-background', {
             method: 'POST',
             body: formData, // FormData contains the file
           });

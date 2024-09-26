@@ -21,7 +21,25 @@ export default function Home() {
   );
 }
 
-export function UploadedImage({file}: string) {
+export function UploadedImage({file, newFile}) {
+  if(file !== '' && newFile !== '') {
+    return (
+      <div className="flex-row">
+        <Image className="my-2"
+          src={file}
+          width={500}
+          height={500}
+          alt="Image"
+        />
+        <Image className="my-2"
+          src={newFile}
+          width={500}
+          height={500}
+          alt="Image"
+        />
+      </div>
+    );
+  }
   if(file !== '') {
     return (
       <Image className="my-2"
@@ -32,6 +50,7 @@ export function UploadedImage({file}: string) {
       />
     );
   }
+  
   return <SkeletonCard/>;
 }
 
@@ -45,46 +64,68 @@ export function Line() {
 
 export function InputFile() {
   const [file, setFile] = useState('');
+  const [newFile, setNewFile] = useState('')
+  const [original, setOriginal] = useState(null)
+  const [newOriginal, setNewOriginal] = useState(null)
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const selectedFile = event.target.files[0]; // Get the first selected file
     if (selectedFile && selectedFile.type.startsWith('image/')) {
       // Only allow image files
+  
       setFile(URL.createObjectURL(selectedFile)); // Create a temporary URL for the image
+      setOriginal(selectedFile)
+      
     } else {
       alert('Please select an image file');
-      setFile(''); // Reset file if the selected file is not an image
+      setFile(''); // Reset file if the selected file is not an imageset
+  
     }
   };
 
-  const removebackground = () => {
-    console.log("Remove")
+
+
+  const removebackground = async () => {
+    if(original != null) {
+      const formData = new FormData();
+      formData.append('image', original);
+        try {
+          const response = await fetch('http://127.0.0.1:5000/remove-background', {
+            method: 'POST',
+            body: formData, // FormData contains the file
+          });
+          console.log(response)
+          const blob = await response.blob();
+          setNewOriginal(blob)
+          setNewFile(URL.createObjectURL(blob))
+          
+          console.log(newFile)
+    
+        } catch (error) {
+          console.log("Error during server rembg")
+        }
+  
+    }
+    
   }
 
-  const download =  async () => {
-    fetch("http://localhost:8000/1556003969809.jpg"
-    ).then((response) => {
-      response.blob().then((blob) => {
-      
-          // Creating new object of PDF file
-          const fileURL =
-              window.URL.createObjectURL(blob);
-              
-          // Setting various property values
-          let alink = document.createElement("a");
-          alink.href = fileURL;
-          alink.download = "download.jpg";
-          alink.click();
-      });
-  });
+  const download =  async () => {    
+    // Creating new object of PDF file
+    const fileURL =
+        window.URL.createObjectURL(newOriginal);
+        
+    // Setting various property values
+    let alink = document.createElement("a");
+    alink.href = fileURL;
+    alink.download = "download.jpg";
+    alink.click();
+    
   };
     
   
   return (
     <div className="flex items-center flex-col">
-    <UploadedImage
-      file={file}
-    />
+    <UploadedImage file={file} newFile={newFile}/>
       <Input id="picture" type="file" onChange={handleFileChange} className=" my-2 w-3/5"/>
       <Button className="my-2 w-3/5" onClick={removebackground}>Remove background</Button>
       <Button className="my-2 w-3/5" onClick={download}>Download</Button>

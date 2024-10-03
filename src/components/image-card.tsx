@@ -2,36 +2,37 @@ import React from 'react'
 import { MagicCard } from './ui/magic-card';
 import Image from 'next/image';
 import { useTheme } from "next-themes";
+import Loading from './loading';
 
-const ImageCard = ({file, newFile}) => {
+const ImageCard = ({file, newFile, isLoading}) => {
     const { theme } = useTheme();
     if (file !== '' && newFile !== '') {
         return (
             <div
                 className={
-                    "flex h-[600px] w-full flex-col gap-4 lg:h-[500px] lg:flex-row"
+                    "flex flex-col w-3/4 gap-4 sm:w-3/4 sm:flex-row"
                 }
             >
                 <MagicCard
                     className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
                     gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
                 >
-                    <Image className="my-2"
+                    <Image 
                         src={file}
-                        width={500}
-                        height={500}
-                        alt="Image"
+                        width={1000}
+                        height={1000}
+                        alt="Original image"
                     />
                 </MagicCard>
                 <MagicCard
                     className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
                     gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
                 >
-                    <Image className="my-2"
+                    <Image
                         src={newFile}
-                        width={500}
-                        height={500}
-                        alt="Image"
+                        width={1000}
+                        height={1000}
+                        alt="Background removed image"
                     />
                 </MagicCard>
             </div>
@@ -41,27 +42,28 @@ const ImageCard = ({file, newFile}) => {
         return (
             <div
                 className={
-                    "flex h-[500px] w-[500px] flex-col gap-4 lg:h-[500px] lg:flex-row"
+                    "flex h-[300px] w-[300px] flex-col gap-4 sm:h-[500px] sm:w-[500px] lg:flex-row"
                 }
             >
                 <MagicCard
                     className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
                     gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
                 >
-                    <Image className="my-2"
+                    <Image
                         src={file}
-                        width={500}
-                        height={500}
+                        width={1000}
+                        height={1000}
                         alt="Image"
                     />
                 </MagicCard>
+                <Loading isLoading={isLoading}/>
             </div>
         );
     }
     return (
         <div
             className={
-                "flex h-[500px] w-[500px] flex-col gap-4 lg:h-[500px] lg:flex-row"
+                "flex h-[300px] w-[300px] flex-col gap-4 sm:h-[400px] sm:w-[400px] lg:flex-row"
             }
         >
             <MagicCard

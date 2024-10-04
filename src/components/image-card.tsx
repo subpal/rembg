@@ -4,7 +4,14 @@ import Image from 'next/image';
 import { useTheme } from "next-themes";
 import Loading from './loading';
 
-const ImageCard = ({file, newFile, isLoading}) => {
+
+interface ImageCardProps {
+    file: string;
+    newFile: string;
+    isLoading: boolean;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({file, newFile, isLoading}) => {
     const { theme } = useTheme();
     if (file !== '' && newFile !== '') {
         return (
@@ -42,7 +49,7 @@ const ImageCard = ({file, newFile, isLoading}) => {
         return (
             <div
                 className={
-                    "flex h-[300px] w-[300px] flex-col gap-4 sm:h-[500px] sm:w-[500px] lg:flex-row"
+                    "flex h-[300px] w-[300px] flex-col gap-4 sm:h-[500px] sm:w-[500px] lg:flex-col"
                 }
             >
                 <MagicCard
@@ -67,7 +74,7 @@ const ImageCard = ({file, newFile, isLoading}) => {
             }
         >
             <MagicCard
-                className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                className="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl"
                 gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
             >
                 Select Image

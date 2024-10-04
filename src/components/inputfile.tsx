@@ -3,17 +3,17 @@ import ImageCard from './image-card';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 
-const InputFile = () => {
+const InputFile:React.FC = () => {
     const [file, setFile] = useState('');
     const [newFile, setNewFile] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const uploadedImage = useRef(null);
-    const backgroundRemovedImage = useRef(null);
+    const uploadedImage = useRef<File|null>(null);
+    const backgroundRemovedImage = useRef<Blob|MediaSource|null>(null);
   
-    const handleFileChange = async (event) => {
+    const handleFileChange = async (event:React.ChangeEvent<HTMLInputElement>) => {
       setFile('')
       setNewFile('')
-      if (event.target != null) {
+      if (event.target != null && event.target.files != null) {
         const selectedFile = event.target.files[0];
         if (selectedFile && selectedFile.type.startsWith('image/')) {
           setFile(URL.createObjectURL(selectedFile));
@@ -50,11 +50,13 @@ const InputFile = () => {
     }
   
     const download = async () => {
-      const fileURL = window.URL.createObjectURL(backgroundRemovedImage.current);
-      const alink = document.createElement("a");
-      alink.href = fileURL;
-      alink.download = "download.jpg";
-      alink.click();
+      if(backgroundRemovedImage.current != null) {
+        const fileURL = window.URL.createObjectURL(backgroundRemovedImage.current);
+        const alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "download.jpg";
+        alink.click();
+      }
     };
   
     return (

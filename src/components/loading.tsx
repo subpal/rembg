@@ -1,10 +1,14 @@
 import React from 'react'
-import {Progress} from "@nextui-org/progress";
 
-const Loading = ({isLoading}) => {
+interface LoadingProps {
+  isLoading: boolean;
+}
+
+
+const Loading: React.FC<LoadingProps> = ({isLoading}) => {
     if(isLoading) {
         return (
-            <div>Please wait, processing...</div>
+            <div className="text-xl">Please wait, processing...</div>
         );
     }
   return (

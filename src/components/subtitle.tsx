@@ -2,7 +2,7 @@ import React from 'react'
 
 const Subtitle = () => {
   return (
-    <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight justify-center flex sm:text-3xl">
+    <h2 className="scroll-m-20 text-xl font-medium tracking-tight justify-center flex sm:text-3xl p-2">
       Free Remove Background Easily
     </h2>
   )

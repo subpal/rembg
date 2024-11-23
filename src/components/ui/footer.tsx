@@ -1,6 +1,7 @@
 import React from 'react';
 import {Typography} from "@material-tailwind/react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const LINKS = [
@@ -26,16 +27,20 @@ function Footer() {
             <div className="mx-auto w-full max-w-7xl px-8">
                 <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
                     <div className="flex-col">
-                        <Typography variant="h5" className="mb-6" placeholder={undefined}
-                                    onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                            BG Rem
-                        </Typography>
-                        <Image className="rounded-lg"
-                               src="/bgrem.png"
-                               width={70}
-                               height={70}
-                               alt="Logo"
-                        />
+                        <Link href="">
+                            <Typography variant="h5" className="mb-6" placeholder={undefined}
+                                        onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                BG Rem
+                            </Typography>
+                        </Link>
+                        <Link href="/">
+                            <Image className="rounded-lg"
+                                   src="/bgrem.png"
+                                   width={70}
+                                   height={70}
+                                   alt="Logo"
+                            />
+                        </Link>
                     </div>
 
                     <div className="grid grid-cols-3 justify-between gap-4">

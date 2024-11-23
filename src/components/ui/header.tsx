@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Image from "next/image";
+import Link from "next/link";
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -9,19 +10,19 @@ function Header() {
     };
 
     return (
-        <header className="pb-6 lg:pb-0">
+        <header className="pb-2 lg:pb-0">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 {/* lg+ */}
-                <nav className="flex items-center justify-between h-16 lg:h-20">
-                    <div className="flex-shrink-0">
-                        <a href="#" title="" className="flex">
+                <nav className="flex items-center justify-between h-16 lg:h-20 my-3">
+                    <div className="flex-shrink-0 p-2">
+                        <Link href="/" title="" className="flex">
                             <Image className="rounded-lg"
                                    src="/bgrem.png"
                                    width={70}
                                    height={70}
                                    alt="Logo"
                             />
-                        </a>
+                        </Link>
                     </div>
 
                     <button

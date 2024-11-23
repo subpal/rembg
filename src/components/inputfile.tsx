@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import ImageCard from './image-card';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+import Payment from "@/components/ui/payment";
+import Link from "next/link";
 
 const InputFile:React.FC = () => {
     const [file, setFile] = useState('');
@@ -61,11 +63,12 @@ const InputFile:React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center">
         <ImageCard file={file} newFile={newFile} isLoading={isLoading} />
-        <div className="flex flex-col p-5 items-center">
-          <Input id="picture" type="file" onChange={handleFileChange} className=" my-2 w-4/5 h-12 text-xl" />
-          <Button className="my-2 w-4/5 h-12 text-xl" onClick={removebackground}>Remove background</Button>
-          <Button className="my-2 w-4/5 h-12 text-xl" onClick={download}>Download</Button>
-        </div>
+          <div className="flex flex-col p-5 items-center">
+              <Input id="picture" type="file" onChange={handleFileChange} className=" my-2 w-4/5 h-12 text-xl"/>
+              <Button className="my-2 w-4/5 h-12 text-xl" onClick={removebackground}>Remove background</Button>
+              <Button className="my-2 w-4/5 h-12 text-xl" onClick={download}>Download</Button>
+              <Payment/>
+          </div>
       </div>
     )
 }

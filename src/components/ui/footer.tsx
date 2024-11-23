@@ -7,15 +7,54 @@ import Link from "next/link";
 const LINKS = [
     {
         title: "Product",
-        items: ["Overview", "Features", "Solutions", "Tutorials"],
+        items: [
+            {
+                text: "Overview",
+                url: "/"
+            },
+            {
+                text: "Features",
+                url: "/"
+            },
+            {
+                text: "Solutions",
+                url: "/"
+            },
+            {
+                text: "Tutorials",
+                url: "/"
+            }
+        ]
     },
     {
         title: "Company",
-        items: ["About us", "Careers", "Press", "News"],
+        items: [
+            {
+                text: "About us",
+                url: "/about-us"
+            }
+        ],
     },
     {
         title: "Resource",
-        items: ["Blog", "Newsletter", "Events", "Help center"],
+        items: [
+            {
+                text: "Blog",
+                url: "/"
+            },
+            {
+                text: "Newsletter",
+                url: "/"
+            },
+            {
+                text: "Events",
+                url: "/"
+            },
+            {
+                text: "Help center",
+                url: "/"
+            }
+        ]
     },
 ];
 
@@ -54,15 +93,15 @@ function Footer() {
                                     {title}
                                 </Typography>
                                 {items.map((link) => (
-                                    <li key={link}>
+                                    <li key={link.text}>
                                         <Typography
                                             as="a"
-                                            href="#"
+                                            href={link.url}
                                             color="gray"
                                             className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"
                                             placeholder={undefined}
                                             onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                                            {link}
+                                            {link.text}
                                         </Typography>
                                     </li>
                                 ))}

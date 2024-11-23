@@ -1,9 +1,11 @@
-import React from 'react'
-
-const Subtitle = () => {
+import React, {FunctionComponent} from 'react'
+interface SubtitleProp {
+    text: string
+}
+const Subtitle: FunctionComponent<SubtitleProp> = ({text}) => {
   return (
     <h2 className="scroll-m-20 text-xl font-medium tracking-tight justify-center flex sm:text-3xl p-2">
-      Free Remove Background Easily
+        {text}
     </h2>
   )
 }

@@ -1,6 +1,11 @@
+'use client'
+
 import localFont from "next/font/local";
 import "./globals.css";
 import { GoogleTagManager } from '@next/third-parties/google'
+import Header from "@/components/ui/header";
+import {Separator} from "@/components/ui/separator";
+import Footer from "@/components/ui/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,7 +49,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-b from-slate-300 to-gray-100`}
       >
+      <Header />
+      <Separator />
         {children}
+      <Footer/>
       </body>
     </html>
   );

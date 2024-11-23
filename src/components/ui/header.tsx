@@ -1,3 +1,4 @@
+'use client'
 import React, {useState} from 'react';
 import Image from "next/image";
 import Link from "next/link";
@@ -86,13 +87,13 @@ function Header() {
                         >
                             Resources
                         </a>
-                        <a
-                            href="#"
+                        <Link
+                            href="/about-us"
                             title=""
                             className="text-2xl font-medium text-gray-700 transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                         >
-                            Pricing
-                        </a>
+                            About Us
+                        </Link>
                     </div>
 
                     <a

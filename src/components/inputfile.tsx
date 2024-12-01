@@ -28,7 +28,7 @@ const InputFile:React.FC = () => {
   
     const removebackground = async () => {
       const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
-      const backendURL = `https://${backendHost}/remove-background`;
+      const backendURL = `https://${backendHost}/backend/remove-background`;
       if (isLoading==false && uploadedImage.current !== null && newFile =='') {
         const formData = new FormData();
         formData.append('image', uploadedImage.current);

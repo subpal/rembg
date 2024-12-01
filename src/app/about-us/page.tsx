@@ -37,7 +37,7 @@ function Page() {
                 <div className="text-2xl pt-3">
                     Creator
                 </div>
-                Founded by Subham Pal, <Link href={'/'}>BGrem.in</Link> was built with a vision to democratize access to professional-grade
+                Founded by <Link href={'https://www.linkedin.com/in/subhampal/'}>Subham Pal</Link>, <Link href={'/'}>BGrem.in</Link> was built with a vision to democratize access to professional-grade
                 image editing tools. Whether you're a student, entrepreneur, designer, or hobbyist, we're here to
                 help you create amazing visuals with ease.
                 <br/>

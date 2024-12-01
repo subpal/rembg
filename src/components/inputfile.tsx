@@ -63,9 +63,9 @@ const InputFile:React.FC = () => {
       <div className="flex flex-col items-center justify-center">
         <ImageCard file={file} newFile={newFile} isLoading={isLoading} />
           <div className="flex flex-col p-5 items-center">
-              <Input id="picture" type="file" onChange={handleFileChange} className=" my-2 w-4/5 h-12 text-xl"/>
-              <Button className="my-2 w-4/5 h-12 text-xl" onClick={removebackground}>Remove background</Button>
-              <Button className="my-2 w-4/5 h-12 text-xl" onClick={download}>Download</Button>
+              <Input id="picture" type="file" onChange={handleFileChange} className=" my-2 w-full h-12 text-xl"/>
+              <Button className="my-2 w-full h-12 text-xl" onClick={removebackground}>Remove background</Button>
+              <Button className="my-2 w-full h-12 text-xl" onClick={download}>Download</Button>
               <Payment/>
           </div>
       </div>

@@ -43,7 +43,6 @@ const Reviews = () => {
       ];
 
     const firstRow = reviews.slice(0, reviews.length / 2);
-    const secondRow = reviews.slice(reviews.length / 2);
     
     const ReviewCard = ({img, name,username, body,}: {
         img: string;
@@ -76,14 +75,9 @@ const Reviews = () => {
         };
 
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex h-[250px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>

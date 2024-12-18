@@ -66,7 +66,6 @@ const InputFile:React.FC = () => {
               <Input id="picture" type="file" onChange={handleFileChange} className=" my-2 w-full h-12 text-xl"/>
               <Button className="my-2 w-full h-12 text-xl" onClick={removebackground}>Remove background</Button>
               <Button className="my-2 w-full h-12 text-xl" onClick={download}>Download</Button>
-              <Payment/>
           </div>
       </div>
     )

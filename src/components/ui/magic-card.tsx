@@ -18,7 +18,7 @@ export function MagicCard({
   return (
     <div
       className={cn(
-        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white",
+        "group relative flex size-full overflow-hidden rounded-xl bg-gray-50 dark:bg-neutral-900 border text-black dark:text-white",
         className,
       )}
     >

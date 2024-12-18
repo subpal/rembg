@@ -47,7 +47,7 @@ export default function RootLayout({
 
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-b from-slate-300 to-gray-100`}
+        className={`${geistSans.variable} ${geistMono.variable}`}
       >
       <Header />
       <Separator />

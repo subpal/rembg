@@ -19,8 +19,8 @@ function Header() {
                         <Link href="/" title="" className="flex">
                             <Image className="rounded-lg"
                                    src="/bgrem.png"
-                                   width={70}
-                                   height={70}
+                                   width={100}
+                                   height={100}
                                    alt="Logo"
                             />
                         </Link>
@@ -97,12 +97,12 @@ function Header() {
                     </div>
 
                     <a
-                        href="/"
+                        href="http://razorpay.me/@bgrem"
                         title=""
                         className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md lg:inline-flex hover:bg-blue-700 focus:bg-blue-700"
                         role="button"
                     >
-                        Get started now
+                        Donate Us
                     </a>
                 </nav>
 

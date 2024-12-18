@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import ImageCard from './image-card';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import Payment from "@/components/ui/payment";
 
 const InputFile:React.FC = () => {
     const [file, setFile] = useState('');

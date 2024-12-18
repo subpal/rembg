@@ -5,7 +5,6 @@ import { canvasPreview } from './canvasPreview'
 import 'react-image-crop/dist/ReactCrop.css'
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Payment from "@/components/ui/payment";
 
 export default function App() {
     const [imgSrc, setImgSrc] = useState('')

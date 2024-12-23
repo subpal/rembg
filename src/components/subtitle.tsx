@@ -4,9 +4,9 @@ interface SubtitleProp {
 }
 const Subtitle: FunctionComponent<SubtitleProp> = ({text}) => {
   return (
-    <h2 className="scroll-m-20 text-2xl font-medium tracking-tight justify-center flex sm:text-3xl p-2">
-        {text}
-    </h2>
+      <h2 className="flex items-center justify-center mb-6 text-[32px] font-bold text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[50px]">
+          {text}
+      </h2>
   )
 }
 

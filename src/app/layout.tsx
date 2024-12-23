@@ -6,6 +6,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import Header from "@/components/ui/header";
 import {Separator} from "@/components/ui/separator";
 import Footer from "@/components/ui/footer";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -51,7 +52,10 @@ export default function RootLayout({
       >
       <Header />
       <Separator />
-        {children}
+      <Image style={{ position: 'absolute', top: `55%`, left: `15%`, zIndex:-1 }} className={"m-5 group-hover:scale-105 transition-transform duration-300"}
+             src={"/fox.svg"} alt={"remove background"} width={150} height={150}/>
+
+      {children}
       <Footer/>
       </body>
     </html>

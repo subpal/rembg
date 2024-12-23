@@ -87,7 +87,7 @@ export default function App() {
 
     return (
         <div className="App">
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center min-h-[500px]">
                 {!!imgSrc && (
                     <ReactCrop
                         className={"rounded-2xl m-5"}
